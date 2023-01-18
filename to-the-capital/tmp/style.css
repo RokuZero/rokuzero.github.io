@@ -1,6 +1,9 @@
-@font-face {
-	font-family:roboto-mono;
-	src:url("./fonts/roboto-mono.ttf");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
+
+* {
+	padding:0;
+	margin:0;
+	box-sizing:border-box;
 }
 
 html, body {
@@ -8,10 +11,8 @@ html, body {
 }
 
 body {
-	padding:0;
-	margin:0;
 	line-height:1.5;
-	font-family:roboto-mono;
+	font-family:'Roboto Mono', monospace;
 	font-size:18px;
 	font-weight:normal;
 	background-color:#3E3E3E;
