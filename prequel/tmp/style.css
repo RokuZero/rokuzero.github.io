@@ -1,0 +1,176 @@
+@font-face {
+	font-family:roboto-mono;
+	src:url("./fonts/roboto-mono.ttf");
+}
+
+html, body {
+	height:100%;
+}
+
+body {
+	padding:0;
+	margin:0;
+	line-height:1.5;
+	font-family:roboto-mono;
+	font-size:18px;
+	font-weight:normal;
+	background-color:#3E3E3E;
+	background-image:url('./images/back.png');
+	background-attachment:fixed;
+	background-position:top;
+}
+
+h1 {
+	display:block;
+	line-height:1;
+	padding:0 0 0 0;
+	margin:0 0 0 0;
+	font-size:44px;
+	font-weight:bold;
+}
+
+.title {
+	line-height:1;
+	padding:0 0 20px 0;
+	margin:0 0 0 0;
+	font-size:28px;
+	font-weight:normal;
+}
+
+a {
+	color:#FFFFFF;
+}
+
+a:hover {
+	text-decoration:none;
+}
+
+p {
+	padding:0 0 0 0;
+	margin:0 0 0 0;
+}
+
+table {
+	border-width:0;
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+table td {
+	vertical-align:middle;
+	padding:0;
+}
+
+.gallery > img {
+	cursor:pointer;
+	display:inline-block;
+	width:calc(25% - 8px);
+	padding:4px;
+	margin:4px;
+	background:#FFFFFF;
+	border:0;
+	box-sizing:border-box;
+}
+
+.button {
+	display:inline-block;
+	padding:10px 30px;
+	font-size:24px;
+	font-weight:normal;
+	text-decoration:none;
+	border-radius:4px;
+	color:#FFFFFF;
+	background:#FF5A00;
+	transition:background 0.4s;
+}
+
+.button:hover {
+	background:#24C609;
+}
+
+.icon {
+	display:inline-block;
+	text-decoration:none;
+}
+
+.icon img {
+	display:block;
+}
+
+/**/
+
+.header {
+	max-width:1200px;
+	margin:0 auto;
+	background:url("/tmp/images/header.jpg");
+}
+
+.header img {
+	display:block;
+	max-width:100%;
+	margin:0;
+}
+
+/**/
+
+.content {
+	display:table;
+	max-width:1200px;
+	margin:0 auto;
+	color:#D8D8D8;
+}
+
+.left, .right {
+	display:table-cell;
+	vertical-align:top;
+}
+
+.left {
+	padding:30px 20px;
+	background-color:#111111;
+}
+
+.right {
+	width:390px;
+	padding:30px 20px;
+	box-sizing:border-box;
+	background-color:#242424;
+}
+
+/**/
+
+.right > div {
+	padding:20px;
+	margin:0 0 30px 0;
+	text-align:center;
+	background:#343434;
+}
+
+/**/
+
+@media screen and (max-width:900px) {
+
+	.content {
+		height:auto;
+		min-height:unset;
+	}
+
+	.content, .left, .right {
+		display:block;
+	}
+
+	.right {
+		width:auto;
+	}
+
+}
+
+/**/
+
+.footer {
+	height:100px;
+	line-height:100px;
+	font-size:14px;
+	color:#FFFFFF;
+	text-align:center;
+}
