@@ -100,23 +100,8 @@ a:hover {
 	background:#343434;
 }
 
-/**/
-
-@media screen and (max-width:900px) {
-
-	.content {
-		height:auto;
-		min-height:unset;
-	}
-
-	.content, .left, .right {
-		display:block;
-	}
-
-	.right {
-		width:auto;
-	}
-
+.right > div:last-child {
+	margin:0;
 }
 
 /**/
@@ -128,6 +113,32 @@ a:hover {
 	color:#FFFFFF;
 	text-align:center;
 }
+
+/**/
+
+@media screen and (max-width:900px) {
+	body {
+		font-size:16px;
+	}
+
+	h1 {
+		font-size:28px;
+	}
+
+	.subtitle {
+		font-size:22px;
+	}
+
+	.content, .left, .right {
+		display:block;
+	}
+
+	.right {
+		width:auto;
+	}
+}
+
+
 
 
 
