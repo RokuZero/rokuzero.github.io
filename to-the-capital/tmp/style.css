@@ -14,7 +14,7 @@ body {
 	line-height:1.5;
 	font-family:'Roboto Mono', monospace;
 	font-size:18px;
-	font-weight:normal;
+	font-weight:400;
 	background-color:#3E3E3E;
 	background-image:url('./images/back.png');
 	background-attachment:fixed;
@@ -24,21 +24,26 @@ body {
 h1 {
 	display:block;
 	line-height:1;
-	padding:0 0 0 0;
-	margin:0 0 0 0;
+	padding:0;
+	margin:0;
 	font-size:44px;
 	font-weight:bold;
 }
 
-.title {
+.subtitle {
 	line-height:1;
 	padding:0 0 20px 0;
-	margin:0 0 0 0;
+	margin:0;
 	font-size:28px;
 	font-weight:normal;
 }
 
-a {
+b {
+	font-weight:600;
+}
+
+a:link, a:visited {
+	text-decoration:none;
 	color:#FFFFFF;
 }
 
@@ -46,21 +51,7 @@ a:hover {
 	text-decoration:none;
 }
 
-p {
-	padding:0 0 0 0;
-	margin:0 0 0 0;
-}
-
-table {
-	border-width:0;
-	border-collapse:collapse;
-	border-spacing:0;
-}
-
-table td {
-	vertical-align:middle;
-	padding:0;
-}
+/**/
 
 .gallery > img {
 	cursor:pointer;
