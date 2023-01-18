@@ -151,4 +151,8 @@ a:hover {
 	.right {
 		width:auto;
 	}
+
+	.gallery > img {
+		width:calc(50% - 8px);
+	}
 }
