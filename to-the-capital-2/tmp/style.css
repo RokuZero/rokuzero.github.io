@@ -1,7 +1,4 @@
-@font-face {
-	font-family: OpenSans;
-	src: url('fonts/OpenSans-Regular.ttf');
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 html, body {
 	height: 100%;
@@ -10,11 +7,15 @@ html, body {
 body {
 	padding: 0;
 	margin: 0;
-	font-family: OpenSans;
+	font-family:'Open Sans', sans-serif;
 	font-size: 18px;
 	font-weight: 400;
 	color: #313131;
 	background: #313131;
+}
+
+b {
+	font-weight:600;
 }
 
 .title_1, .title_2 {
