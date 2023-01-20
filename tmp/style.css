@@ -57,19 +57,20 @@ b {
 	justify-content:center;
 	width:100%;
 	max-width:340px;
+	text-align:center;
 	color:#414141;
 	background:#E3E3E3;
 }
 
 .card-text h1 {
 	flex-basis:100%;
-	padding-bottom:20px;
+	margin-bottom:20px;
 	font-size:38px;
 }
 
 .card-text a, .card-text a:link, .card-text a:visited {
 	flex-basis:100%;
-	padding-bottom:20px;
+	margin-bottom:20px;
 	text-decoration:none;
 	border-bottom:1px dotted #195BBF;
 	color:#195BBF;
@@ -82,7 +83,7 @@ b {
 }
 
 .card-text a:last-child {
-	padding-bottom:0;
+	margin-bottom:0;
 }
 
 /**/
