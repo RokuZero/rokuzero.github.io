@@ -11,6 +11,7 @@ html, body {
 }
 
 body {
+	line-height:1;
 	font-family:'Open Sans', sans-serif;
 	font-size:18px;
 	font-weight:400;
@@ -20,6 +21,19 @@ body {
 
 b {
 	font-weight:600;
+}
+
+h1 {
+	padding-bottom:20px;
+	font-size:38px;
+}
+
+p {
+	padding-bottom:20px;
+}
+
+p:last-child {
+	padding-bottom:0;
 }
 
 /**/
@@ -54,6 +68,18 @@ b {
 	max-width:340px;
 	color:#414141;
 	background:#E3E3E3;
+}
+
+.card-text a, .card-text a:link, .card-text a:visited {
+	text-decoration:none;
+	border-bottom:1px dotted #195BBF;
+	color:#195BBF;
+	transition:0.3s color, 0.3s border-color;
+}
+
+.card-text a:hover {
+	color:#3571CB;
+	border-color:rgba(0, 0, 0, 0);
 }
 
 /**/
