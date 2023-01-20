@@ -72,6 +72,7 @@ p:last-child {
 	text-align:center;
 	color:#414141;
 	background:#E3E3E3;
+	border-radius:5px;
 }
 
 .card-text a, .card-text a:link, .card-text a:visited {
@@ -94,6 +95,7 @@ p:last-child {
 	color:#F0F0F0;
 	background:#4C4C4C;
 	transition:0.3s background;
+	border-radius:5px;
 }
 
 .card-link:hover {
@@ -105,6 +107,7 @@ p:last-child {
 	display:block;
 	width:100%;
 	max-width:300px;
+	border-radius:5px;
 	opacity:0.7;
 	transition:0.3s opacity;
 }
