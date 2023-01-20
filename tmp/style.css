@@ -23,6 +23,19 @@ b {
 	font-weight:600;
 }
 
+h1 {
+	padding-bottom:20px;
+	font-size:38px;
+}
+
+p {
+	padding-bottom:20px;
+}
+
+p:last-child {
+	padding-bottom:0;
+}
+
 /**/
 
 .main {
@@ -52,7 +65,6 @@ b {
 
 .card-text {
 	display:flex;
-	flex-wrap:wrap;
 	align-items:center;
 	justify-content:center;
 	width:100%;
@@ -62,15 +74,7 @@ b {
 	background:#E3E3E3;
 }
 
-.card-text h1 {
-	flex-basis:100%;
-	margin-bottom:20px;
-	font-size:38px;
-}
-
 .card-text a, .card-text a:link, .card-text a:visited {
-	flex-basis:100%;
-	margin-bottom:20px;
 	text-decoration:none;
 	border-bottom:1px dotted #195BBF;
 	color:#195BBF;
@@ -80,10 +84,6 @@ b {
 .card-text a:hover {
 	color:#3571CB;
 	border-color:rgba(0, 0, 0, 0);
-}
-
-.card-text a:last-child {
-	margin-bottom:0;
 }
 
 /**/
