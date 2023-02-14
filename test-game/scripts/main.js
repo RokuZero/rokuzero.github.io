@@ -65,6 +65,8 @@ loader.add('car', 'assets/car.png')
 	  .add('clouds', 'assets/clouds.png')
 	  .add('hole', 'assets/hole.png')
 	  .add('barrier', 'assets/barrier.png')
+	  .add('coin', 'assets/coin.png')
+	  .add('coin_double', 'assets/coin_double.png')
 	  .load(prepare)
 
 // prepare
@@ -96,6 +98,11 @@ function prepare() {
 	uiHelp.x = 15;
 	uiHelp.y = 475;
 	container.addChild(uiHelp);
+
+	let uiCoin = new PIXI.Sprite(loader.resources.coin.texture);
+	uiCoin.x = 470;
+	uiCoin.y = 485;
+	container.addChild(uiCoin);
 
 	start();
 }
