@@ -130,11 +130,27 @@ function loop(delta) {
 		container.addChild(barrier);
 	}
 
+	if(timePassed / 15 > nodes.holes.length + 1 && nodes.holes.length < 2) {
+		let hole = new PIXI.Sprite(loader.resources.hole.texture);
+		hole.position.y = 70;
+		hole.position.x = getRandomPositionX();
+		nodes.holes.push(hole)
+		container.addChild(hole);
+	}
+
 	for(let barrier of nodes.barriers) {
 		barrier.position.y += 1 * delta;
 		if(barrier.position.y > 600) {
 			barrier.position.y = 70
 			barrier.position.x = getRandomPositionX();
+		}
+	}
+
+	for(let hole of nodes.holes) {
+		hole.position.y += 1 * delta;
+		if(hole.position.y > 600) {
+			hole.position.y = 70
+			hole.position.x = getRandomPositionX();
 		}
 	}
 
