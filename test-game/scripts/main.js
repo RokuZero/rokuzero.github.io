@@ -3,6 +3,13 @@ PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 const RENDER_WIDTH = 512;
 const RENDER_HEIGHT = 528;
 
+const UI_STYLE_TEXT = new PIXI.TextStyle({
+	fontFamily : 'Arial',
+	fontSize : 16,
+	fill : '#303030',
+	lineJoin : 'round',
+});
+
 let application = false;
 let texture = false;
 let sprite = false;
@@ -73,6 +80,9 @@ loader.add('car', 'assets/car.png')
 // prepare
 
 function prepare() {
+	nodes.barriers = [];
+	nodes.holes = [];
+
 	nodes.town = new PIXI.Sprite(loader.resources.town.texture);
 	nodes.clouds = new PIXI.TilingSprite(loader.resources.clouds.texture, 512, 34);
 	nodes.road = new PIXI.Sprite(loader.resources.road.texture);
@@ -85,20 +95,10 @@ function prepare() {
 	container.addChild(nodes.roadLines);
 	container.addChild(nodes.car);
 
-	nodes.barriers = [];
-	nodes.holes = [];
-
-	let uiStyle = new PIXI.TextStyle({
-		fontFamily : 'Arial',
-		fontSize : 16,
-		fill : '#303030',
-		lineJoin : 'round',
-	});
-
-	ui.help = new PIXI.Text('A / D - to move\nSpace - to boost', uiStyle);
-	container.addChild(ui.help);
-
+	ui.help = new PIXI.Text('A / D - to move\nSpace - to boost', UI_STYLE_TEXT);
 	ui.coin = new PIXI.Sprite(loader.resources.coin.texture);
+
+	container.addChild(ui.help);
 	container.addChild(ui.coin);
 
 	start();
