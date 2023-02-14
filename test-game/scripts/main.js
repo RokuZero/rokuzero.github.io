@@ -9,6 +9,8 @@ let sprite = false;
 let container =  new PIXI.Container();
 let loader = new PIXI.Loader();
 let nodes = {};
+let timePassed = 0;
+let score = 0;
 let keyboard = {
 	left : false,
 	right : false
@@ -83,6 +85,9 @@ function prepare() {
 	container.addChild(nodes.roadLineRight);
 	container.addChild(nodes.car);
 
+	nodes.barriers = [];
+	nodes.holes = [];
+
 	start();
 }
 
@@ -112,6 +117,10 @@ function start() {
 // loop
 
 function loop(delta) {
+	timePassed += delta  / 60;
+
+	// console.log(timePassed, timePassed / 10)
+
 	nodes.clouds.tilePosition.x += 0.5 * delta;
 	nodes.roadLineLeft.tilePosition.y += 1 * delta;
 	nodes.roadLineCenter.tilePosition.y += 1 * delta;
@@ -128,6 +137,27 @@ function loop(delta) {
 			nodes.car.position.x += 4 * delta;
 		}
 	}
+
+	if(timePassed / 10 > nodes.barriers.length && nodes.barriers.length < 2) {
+		let barrier = new PIXI.Sprite(loader.resources.barrier.texture);
+		barrier.position.y = 70;
+		barrier.position.x = 158;
+		nodes.barriers.push(barrier)
+		container.addChild(barrier);
+	}
+
+	if(timePassed / 15 > nodes.holes.length + 1 && nodes.holes.length < 2) {
+		let hole = new PIXI.Sprite(loader.resources.hole.texture);
+		nodes.holes.push(hole)
+		container.addChild(hole);
+	}
+
+	for(let iter of nodes.barriers) {
+		iter.position.y += 1;
+	}
+
+
+	//nodes.holes
 
 	application.renderer.render(container, texture);
 }
