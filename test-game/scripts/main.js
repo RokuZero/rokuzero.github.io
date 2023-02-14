@@ -38,6 +38,21 @@ document.addEventListener('keyup', control);
 window.addEventListener('resize', resize);
 resize();
 
+// resize
+
+function resize() {
+	let windowWidth = window.innerWidth;
+	let windowHeight = window.innerHeight;
+
+	let ratio = Math.min(windowWidth / RENDER_WIDTH, windowHeight / RENDER_HEIGHT);
+
+	let newRenderWidth = RENDER_WIDTH * ratio;
+	let newRenderHeight = RENDER_HEIGHT * ratio;
+
+	application.renderer.resize(newRenderWidth, newRenderHeight);
+	sprite.scale.x = sprite.scale.y = ratio;
+}
+
 // load resources
 
 loader.add('car', 'assets/car.png')
@@ -57,21 +72,6 @@ loader.load((loader, resources) => {
 
 	start();
 });
-
-// resize
-
-function resize() {
-	let windowWidth = window.innerWidth;
-	let windowHeight = window.innerHeight;
-
-	let ratio = Math.min(windowWidth / RENDER_WIDTH, windowHeight / RENDER_HEIGHT);
-
-	let newRenderWidth = RENDER_WIDTH * ratio;
-	let newRenderHeight = RENDER_HEIGHT * ratio;
-
-	application.renderer.resize(newRenderWidth, newRenderHeight);
-	sprite.scale.x = sprite.scale.y = ratio;
-}
 
 // start
 
