@@ -113,7 +113,7 @@ function start() {
 	nodes.road.position.y = 73;
 
 	nodes.roadLines.position.x = 185;
-	nodes.roadLines.position.y = 70;
+	nodes.roadLines.position.y = 78;
 
 	nodes.car.position.x = RENDER_WIDTH / 2 - 44 / 2 ;
 	nodes.car.position.y = 430;
