@@ -8,7 +8,7 @@ let texture = false;
 let sprite = false;
 let container =  new PIXI.Container();
 let loader = new PIXI.Loader();
-let objects = {};
+let nodes = {};
 let keyboard = {
 	left : false,
 	right : false
@@ -62,13 +62,13 @@ loader.add('car', 'assets/car.png')
 	  .add('clouds', 'assets/clouds.png');
 
 loader.load((loader, resources) => {
-	objects.car = new PIXI.Sprite(resources.car.texture);
-	objects.road = new PIXI.Sprite(resources.road.texture);
-	objects.roadLineLeft = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
-	objects.roadLineCenter = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
-	objects.roadLineRight = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
-	objects.town = new PIXI.Sprite(resources.town.texture);
-	objects.clouds = new PIXI.TilingSprite(resources.clouds.texture, 512, 34);
+	nodes.car = new PIXI.Sprite(resources.car.texture);
+	nodes.road = new PIXI.Sprite(resources.road.texture);
+	nodes.roadLineLeft = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
+	nodes.roadLineCenter = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
+	nodes.roadLineRight = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
+	nodes.town = new PIXI.Sprite(resources.town.texture);
+	nodes.clouds = new PIXI.TilingSprite(resources.clouds.texture, 512, 34);
 
 	start();
 });
@@ -76,30 +76,30 @@ loader.load((loader, resources) => {
 // start
 
 function start() {
-	container.addChild(objects.town);
-	container.addChild(objects.clouds);
-	container.addChild(objects.road);
-	container.addChild(objects.roadLineLeft);
-	container.addChild(objects.roadLineCenter);
-	container.addChild(objects.roadLineRight);
-	container.addChild(objects.car);
+	container.addChild(nodes.town);
+	container.addChild(nodes.clouds);
+	container.addChild(nodes.road);
+	container.addChild(nodes.roadLineLeft);
+	container.addChild(nodes.roadLineCenter);
+	container.addChild(nodes.roadLineRight);
+	container.addChild(nodes.car);
 
-	objects.town.position.y = 25;
-	objects.road.position.y = 73;
+	nodes.town.position.y = 25;
+	nodes.road.position.y = 73;
 
-	objects.roadLineLeft.position.x = 182;
-	objects.roadLineCenter.position.x = 255;
-	objects.roadLineRight.position.x = 322;
+	nodes.roadLineLeft.position.x = 182;
+	nodes.roadLineCenter.position.x = 255;
+	nodes.roadLineRight.position.x = 322;
 
-	objects.roadLineLeft.position.y = 70;
-	objects.roadLineCenter.position.y = 70;
-	objects.roadLineRight.position.y = 70;
+	nodes.roadLineLeft.position.y = 70;
+	nodes.roadLineCenter.position.y = 70;
+	nodes.roadLineRight.position.y = 70;
 
-	objects.roadLineLeft.rotation = 0.05;
-	objects.roadLineRight.rotation = -0.05;
+	nodes.roadLineLeft.rotation = 0.05;
+	nodes.roadLineRight.rotation = -0.05;
 
-	objects.car.position.x = RENDER_WIDTH / 2 - 44 / 2 ;
-	objects.car.position.y = 430;
+	nodes.car.position.x = RENDER_WIDTH / 2 - 44 / 2 ;
+	nodes.car.position.y = 430;
 
 	application.ticker.add(loop);
 }
@@ -107,20 +107,20 @@ function start() {
 // loop
 
 function loop(delta) {
-	objects.clouds.tilePosition.x += 0.5 * delta;
-	objects.roadLineLeft.tilePosition.y += 1 * delta;
-	objects.roadLineCenter.tilePosition.y += 1 * delta;
-	objects.roadLineRight.tilePosition.y += 1 * delta;
+	nodes.clouds.tilePosition.x += 0.5 * delta;
+	nodes.roadLineLeft.tilePosition.y += 1 * delta;
+	nodes.roadLineCenter.tilePosition.y += 1 * delta;
+	nodes.roadLineRight.tilePosition.y += 1 * delta;
 
 	if(keyboard.left === true) {
-		if(objects.car.position.x > 130) {
-			objects.car.position.x -= 4 * delta;
+		if(nodes.car.position.x > 130) {
+			nodes.car.position.x -= 4 * delta;
 		}
 	}
 
 	if(keyboard.right === true) {
-		if(objects.car.position.x < 336) {
-			objects.car.position.x += 4 * delta;
+		if(nodes.car.position.x < 336) {
+			nodes.car.position.x += 4 * delta;
 		}
 	}
 
