@@ -9,6 +9,7 @@ let sprite = false;
 let container =  new PIXI.Container();
 let loader = new PIXI.Loader();
 let nodes = {};
+let ui = {};
 let timePassed = 0;
 let score = 0;
 let keyboard = {
@@ -94,15 +95,11 @@ function prepare() {
 		lineJoin : 'round',
 	});
 
-	let uiHelp = new PIXI.Text('A / D - to move\nSpace - to boost', uiStyle);
-	uiHelp.x = 15;
-	uiHelp.y = 475;
-	container.addChild(uiHelp);
+	ui.help = new PIXI.Text('A / D - to move\nSpace - to boost', uiStyle);
+	container.addChild(ui.help);
 
-	let uiCoin = new PIXI.Sprite(loader.resources.coin.texture);
-	uiCoin.x = 470;
-	uiCoin.y = 485;
-	container.addChild(uiCoin);
+	ui.coin = new PIXI.Sprite(loader.resources.coin.texture);
+	container.addChild(ui.coin);
 
 	start();
 }
@@ -118,6 +115,12 @@ function start() {
 
 	nodes.car.position.x = RENDER_WIDTH / 2 - 44 / 2 ;
 	nodes.car.position.y = 430;
+
+	ui.help.x = 15;
+	ui.help.y = 475;
+
+	ui.coin.x = 470;
+	ui.coin.y = 485;
 
 	application.ticker.add(loop);
 }
