@@ -8,7 +8,7 @@ let texture = false;
 let sprite = false;
 let container =  new PIXI.Container();
 let loader = new PIXI.Loader();
-let sprites = {};
+let objects = {};
 let keyboard = {
 	left : false,
 	right : false
@@ -41,19 +41,19 @@ resize();
 // load resources
 
 loader.add('car', 'assets/car.png')
-.add('road', 'assets/road.png')
-.add('road_lines', 'assets/road_lines.png')
-.add('town', 'assets/town.png')
-.add('clouds', 'assets/clouds.png');
+	  .add('road', 'assets/road.png')
+	  .add('road_lines', 'assets/road_lines.png')
+	  .add('town', 'assets/town.png')
+	  .add('clouds', 'assets/clouds.png');
 
 loader.load((loader, resources) => {
-	sprites.car = new PIXI.Sprite(resources.car.texture);
-	sprites.road = new PIXI.Sprite(resources.road.texture);
-	sprites.roadLineLeft = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
-	sprites.roadLineCenter = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
-	sprites.roadLineRight = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
-	sprites.town = new PIXI.Sprite(resources.town.texture);
-	sprites.clouds = new PIXI.TilingSprite(resources.clouds.texture, 512, 34);
+	objects.car = new PIXI.Sprite(resources.car.texture);
+	objects.road = new PIXI.Sprite(resources.road.texture);
+	objects.roadLineLeft = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
+	objects.roadLineCenter = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
+	objects.roadLineRight = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
+	objects.town = new PIXI.Sprite(resources.town.texture);
+	objects.clouds = new PIXI.TilingSprite(resources.clouds.texture, 512, 34);
 
 	start();
 });
@@ -77,30 +77,30 @@ function resize() {
 // start
 
 function start() {
-	container.addChild(sprites.town);
-	container.addChild(sprites.clouds);
-	container.addChild(sprites.road);
-	container.addChild(sprites.roadLineLeft);
-	container.addChild(sprites.roadLineCenter);
-	container.addChild(sprites.roadLineRight);
-	container.addChild(sprites.car);
+	container.addChild(objects.town);
+	container.addChild(objects.clouds);
+	container.addChild(objects.road);
+	container.addChild(objects.roadLineLeft);
+	container.addChild(objects.roadLineCenter);
+	container.addChild(objects.roadLineRight);
+	container.addChild(objects.car);
 
-	sprites.town.position.y = 25;
-	sprites.road.position.y = 73;
+	objects.town.position.y = 25;
+	objects.road.position.y = 73;
 
-	sprites.roadLineLeft.position.x = 182;
-	sprites.roadLineLeft.position.y = 70;
-	sprites.roadLineLeft.rotation = 0.05;
+	objects.roadLineLeft.position.x = 182;
+	objects.roadLineLeft.position.y = 70;
+	objects.roadLineLeft.rotation = 0.05;
 
-	sprites.roadLineCenter.position.x = 255;
-	sprites.roadLineCenter.position.y = 70;
+	objects.roadLineCenter.position.x = 255;
+	objects.roadLineCenter.position.y = 70;
 
-	sprites.roadLineRight.position.x = 322;
-	sprites.roadLineRight.position.y = 70;
-	sprites.roadLineRight.rotation = -0.05;
+	objects.roadLineRight.position.x = 322;
+	objects.roadLineRight.position.y = 70;
+	objects.roadLineRight.rotation = -0.05;
 
-	sprites.car.position.x = RENDER_WIDTH / 2 - 44 / 2 ;
-	sprites.car.position.y = 430;
+	objects.car.position.x = RENDER_WIDTH / 2 - 44 / 2 ;
+	objects.car.position.y = 430;
 
 	application.ticker.add(loop);
 }
@@ -109,20 +109,20 @@ function start() {
 
 function loop(delta) {
 	application.renderer.render(container, texture);
-	sprites.clouds.tilePosition.x += 0.5 * delta;
-	sprites.roadLineLeft.tilePosition.y += 1 * delta;
-	sprites.roadLineCenter.tilePosition.y += 1 * delta;
-	sprites.roadLineRight.tilePosition.y += 1 * delta;
+	objects.clouds.tilePosition.x += 0.5 * delta;
+	objects.roadLineLeft.tilePosition.y += 1 * delta;
+	objects.roadLineCenter.tilePosition.y += 1 * delta;
+	objects.roadLineRight.tilePosition.y += 1 * delta;
 
 	if(keyboard.left === true) {
-		if(sprites.car.position.x > 130) {
-			sprites.car.position.x -= 4 * delta;
+		if(objects.car.position.x > 130) {
+			objects.car.position.x -= 4 * delta;
 		}
 	}
 
 	if(keyboard.right === true) {
-		if(sprites.car.position.x < 336) {
-			sprites.car.position.x += 4 * delta;
+		if(objects.car.position.x < 336) {
+			objects.car.position.x += 4 * delta;
 		}
 	}
 }
