@@ -85,6 +85,18 @@ function prepare() {
 	nodes.barriers = [];
 	nodes.holes = [];
 
+	let uiStyle = new PIXI.TextStyle({
+		fontFamily : 'Arial',
+		fontSize : 16,
+		fill : '#303030',
+		lineJoin : 'round',
+	});
+
+	let uiHelp = new PIXI.Text('A / D - to move\nSpace - to boost', uiStyle);
+	uiHelp.x = 15;
+	uiHelp.y = 475;
+	container.addChild(uiHelp);
+
 	start();
 }
 
