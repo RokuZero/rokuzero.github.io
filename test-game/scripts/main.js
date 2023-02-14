@@ -88,14 +88,14 @@ function start() {
 	objects.road.position.y = 73;
 
 	objects.roadLineLeft.position.x = 182;
-	objects.roadLineLeft.position.y = 70;
-	objects.roadLineLeft.rotation = 0.05;
-
 	objects.roadLineCenter.position.x = 255;
-	objects.roadLineCenter.position.y = 70;
-
 	objects.roadLineRight.position.x = 322;
+
+	objects.roadLineLeft.position.y = 70;
+	objects.roadLineCenter.position.y = 70;
 	objects.roadLineRight.position.y = 70;
+
+	objects.roadLineLeft.rotation = 0.05;
 	objects.roadLineRight.rotation = -0.05;
 
 	objects.car.position.x = RENDER_WIDTH / 2 - 44 / 2 ;
@@ -107,7 +107,6 @@ function start() {
 // loop
 
 function loop(delta) {
-	application.renderer.render(container, texture);
 	objects.clouds.tilePosition.x += 0.5 * delta;
 	objects.roadLineLeft.tilePosition.y += 1 * delta;
 	objects.roadLineCenter.tilePosition.y += 1 * delta;
@@ -124,6 +123,8 @@ function loop(delta) {
 			objects.car.position.x += 4 * delta;
 		}
 	}
+
+	application.renderer.render(container, texture);
 }
 
 // control
