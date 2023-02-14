@@ -24,7 +24,7 @@ application = new PIXI.Application({
 	backgroundColor : 0xF4F4F2
 });
 
-texture = new PIXI.BaseRenderTexture(0, 0, PIXI.SCALE_MODES.NEAREST, 1);
+texture = new PIXI.BaseRenderTexture(RENDER_WIDTH, RENDER_HEIGHT, PIXI.SCALE_MODES.NEAREST, 1);
 texture = new PIXI.RenderTexture(texture);
 
 sprite = new PIXI.Sprite(texture);
@@ -69,7 +69,6 @@ function resize() {
 	let newRenderWidth = RENDER_WIDTH * ratio;
 	let newRenderHeight = RENDER_HEIGHT * ratio;
 
-	texture.resize(RENDER_WIDTH, RENDER_HEIGHT);
 	application.renderer.resize(newRenderWidth, newRenderHeight);
 	sprite.scale.x = sprite.scale.y = ratio;
 }
