@@ -13,7 +13,8 @@ let timePassed = 0;
 let score = 0;
 let keyboard = {
 	left : false,
-	right : false
+	right : false,
+	boost : false
 };
 
 // create viewport
@@ -105,22 +106,26 @@ function start() {
 // loop
 
 function loop(delta) {
-	timePassed += delta  / 60;
-
-	nodes.clouds.tilePosition.x += 0.5 * delta;
-	nodes.roadLines.tilePosition.y += 1 * delta;
+	if(keyboard.boost === true) {
+		delta = delta * 2;
+	}
 
 	if(keyboard.left === true) {
-		if(nodes.car.position.x > 130) {
+		if(nodes.car.position.x > 160) {
 			nodes.car.position.x -= 4 * delta;
 		}
 	}
 
 	if(keyboard.right === true) {
-		if(nodes.car.position.x < 336) {
+		if(nodes.car.position.x < 310) {
 			nodes.car.position.x += 4 * delta;
 		}
 	}
+
+	timePassed += delta  / 60;
+
+	nodes.clouds.tilePosition.x += 0.5 * delta;
+	nodes.roadLines.tilePosition.y += 1 * delta;
 
 	if(timePassed / 10 > nodes.barriers.length && nodes.barriers.length < 2) {
 		let barrier = new PIXI.Sprite(loader.resources.barrier.texture);
@@ -169,6 +174,10 @@ function control(key) {
 
 	if(code === 68) {
 		keyboard.right = type === 'keyup' ? false : true;
+	}
+
+	if(code === 32) {
+		keyboard.boost = type === 'keyup' ? false : true;
 	}
 }
 
