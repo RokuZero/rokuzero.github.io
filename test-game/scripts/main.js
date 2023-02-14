@@ -67,20 +67,14 @@ loader.add('car', 'assets/car.png')
 // prepare
 
 function prepare() {
-	nodes.car = new PIXI.Sprite(loader.resources.car.texture);
+	nodes.town = new PIXI.Sprite(loader.resources.town.texture);
+	nodes.clouds = new PIXI.TilingSprite(loader.resources.clouds.texture, 512, 34);
 	nodes.road = new PIXI.Sprite(loader.resources.road.texture);
 	nodes.roadLineLeft = new PIXI.TilingSprite(loader.resources.road_lines.texture, 4, 453);
 	nodes.roadLineCenter = new PIXI.TilingSprite(loader.resources.road_lines.texture, 4, 453);
 	nodes.roadLineRight = new PIXI.TilingSprite(loader.resources.road_lines.texture, 4, 453);
-	nodes.town = new PIXI.Sprite(loader.resources.town.texture);
-	nodes.clouds = new PIXI.TilingSprite(loader.resources.clouds.texture, 512, 34);
+	nodes.car = new PIXI.Sprite(loader.resources.car.texture);
 
-	start();
-}
-
-// start
-
-function start() {
 	container.addChild(nodes.town);
 	container.addChild(nodes.clouds);
 	container.addChild(nodes.road);
@@ -89,6 +83,12 @@ function start() {
 	container.addChild(nodes.roadLineRight);
 	container.addChild(nodes.car);
 
+	start();
+}
+
+// start
+
+function start() {
 	nodes.town.position.y = 25;
 	nodes.road.position.y = 73;
 
