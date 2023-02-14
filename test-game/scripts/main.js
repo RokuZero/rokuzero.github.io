@@ -72,17 +72,13 @@ function prepare() {
 	nodes.town = new PIXI.Sprite(loader.resources.town.texture);
 	nodes.clouds = new PIXI.TilingSprite(loader.resources.clouds.texture, 512, 34);
 	nodes.road = new PIXI.Sprite(loader.resources.road.texture);
-	nodes.roadLineLeft = new PIXI.TilingSprite(loader.resources.road_lines.texture, 4, 453);
-	nodes.roadLineCenter = new PIXI.TilingSprite(loader.resources.road_lines.texture, 4, 453);
-	nodes.roadLineRight = new PIXI.TilingSprite(loader.resources.road_lines.texture, 4, 453);
+	nodes.roadLines = new PIXI.TilingSprite(loader.resources.road_lines.texture, 142, 452);
 	nodes.car = new PIXI.Sprite(loader.resources.car.texture);
 
 	container.addChild(nodes.town);
 	container.addChild(nodes.clouds);
 	container.addChild(nodes.road);
-	container.addChild(nodes.roadLineLeft);
-	container.addChild(nodes.roadLineCenter);
-	container.addChild(nodes.roadLineRight);
+	container.addChild(nodes.roadLines);
 	container.addChild(nodes.car);
 
 	nodes.barriers = [];
@@ -97,16 +93,8 @@ function start() {
 	nodes.town.position.y = 25;
 	nodes.road.position.y = 73;
 
-	nodes.roadLineLeft.position.x = 182;
-	nodes.roadLineCenter.position.x = 255;
-	nodes.roadLineRight.position.x = 322;
-
-	nodes.roadLineLeft.position.y = 70;
-	nodes.roadLineCenter.position.y = 70;
-	nodes.roadLineRight.position.y = 70;
-
-	nodes.roadLineLeft.rotation = 0.05;
-	nodes.roadLineRight.rotation = -0.05;
+	nodes.roadLines.position.x = 185;
+	nodes.roadLines.position.y = 70;
 
 	nodes.car.position.x = RENDER_WIDTH / 2 - 44 / 2 ;
 	nodes.car.position.y = 430;
@@ -119,12 +107,8 @@ function start() {
 function loop(delta) {
 	timePassed += delta  / 60;
 
-	// console.log(timePassed, timePassed / 10)
-
 	nodes.clouds.tilePosition.x += 0.5 * delta;
-	nodes.roadLineLeft.tilePosition.y += 1 * delta;
-	nodes.roadLineCenter.tilePosition.y += 1 * delta;
-	nodes.roadLineRight.tilePosition.y += 1 * delta;
+	nodes.roadLines.tilePosition.y += 1 * delta;
 
 	if(keyboard.left === true) {
 		if(nodes.car.position.x > 130) {
@@ -141,23 +125,18 @@ function loop(delta) {
 	if(timePassed / 10 > nodes.barriers.length && nodes.barriers.length < 2) {
 		let barrier = new PIXI.Sprite(loader.resources.barrier.texture);
 		barrier.position.y = 70;
-		barrier.position.x = 158;
+		barrier.position.x = getRandomPositionX();
 		nodes.barriers.push(barrier)
 		container.addChild(barrier);
 	}
 
-	if(timePassed / 15 > nodes.holes.length + 1 && nodes.holes.length < 2) {
-		let hole = new PIXI.Sprite(loader.resources.hole.texture);
-		nodes.holes.push(hole)
-		container.addChild(hole);
+	for(let barrier of nodes.barriers) {
+		barrier.position.y += 1 * delta;
+		if(barrier.position.y > 600) {
+			barrier.position.y = 70
+			barrier.position.x = getRandomPositionX();
+		}
 	}
-
-	for(let iter of nodes.barriers) {
-		iter.position.y += 1;
-	}
-
-
-	//nodes.holes
 
 	application.renderer.render(container, texture);
 }
@@ -175,4 +154,13 @@ function control(key) {
 	if(code === 68) {
 		keyboard.right = type === 'keyup' ? false : true;
 	}
+}
+
+// random position
+
+function getRandomPositionX() {
+	let position = [159, 227, 295];
+	let index = Math.random() * position.length;
+	index = Math.floor(index);
+	return position[index];
 }
