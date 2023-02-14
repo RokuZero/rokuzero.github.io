@@ -59,19 +59,24 @@ loader.add('car', 'assets/car.png')
 	  .add('road', 'assets/road.png')
 	  .add('road_lines', 'assets/road_lines.png')
 	  .add('town', 'assets/town.png')
-	  .add('clouds', 'assets/clouds.png');
+	  .add('clouds', 'assets/clouds.png')
+	  .add('hole', 'assets/hole.png')
+	  .add('barrier', 'assets/barrier.png')
+	  .load(prepare)
 
-loader.load((loader, resources) => {
-	nodes.car = new PIXI.Sprite(resources.car.texture);
-	nodes.road = new PIXI.Sprite(resources.road.texture);
-	nodes.roadLineLeft = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
-	nodes.roadLineCenter = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
-	nodes.roadLineRight = new PIXI.TilingSprite(resources.road_lines.texture, 4, 453);
-	nodes.town = new PIXI.Sprite(resources.town.texture);
-	nodes.clouds = new PIXI.TilingSprite(resources.clouds.texture, 512, 34);
+// prepare
+
+function prepare() {
+	nodes.car = new PIXI.Sprite(loader.resources.car.texture);
+	nodes.road = new PIXI.Sprite(loader.resources.road.texture);
+	nodes.roadLineLeft = new PIXI.TilingSprite(loader.resources.road_lines.texture, 4, 453);
+	nodes.roadLineCenter = new PIXI.TilingSprite(loader.resources.road_lines.texture, 4, 453);
+	nodes.roadLineRight = new PIXI.TilingSprite(loader.resources.road_lines.texture, 4, 453);
+	nodes.town = new PIXI.Sprite(loader.resources.town.texture);
+	nodes.clouds = new PIXI.TilingSprite(loader.resources.clouds.texture, 512, 34);
 
 	start();
-});
+}
 
 // start
 
