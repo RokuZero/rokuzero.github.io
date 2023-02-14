@@ -96,9 +96,11 @@ function prepare() {
 	container.addChild(nodes.car);
 
 	ui.help = new PIXI.Text('A / D - to move\nSpace - to boost', UI_STYLE_TEXT);
+	ui.score = new PIXI.Text('0', UI_STYLE_TEXT);
 	ui.coin = new PIXI.Sprite(loader.resources.coin.texture);
 
 	container.addChild(ui.help);
+	container.addChild(ui.score);
 	container.addChild(ui.coin);
 
 	start();
@@ -118,6 +120,10 @@ function start() {
 
 	ui.help.x = 15;
 	ui.help.y = 475;
+
+	ui.score.anchor.set(1, 0);
+	ui.score.x = 460;
+	ui.score.y = 489;
 
 	ui.coin.x = 470;
 	ui.coin.y = 485;
