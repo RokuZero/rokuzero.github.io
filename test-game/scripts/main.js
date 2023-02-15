@@ -141,12 +141,18 @@ function loop(delta) {
 	if(keyboard.left === true) {
 		if(nodes.car.position.x > 160) {
 			nodes.car.position.x -= 4 * delta;
+			if(nodes.car.position.x < 160) {
+				nodes.car.position.x = 160;
+			}
 		}
 	}
 
 	if(keyboard.right === true) {
 		if(nodes.car.position.x < 310) {
 			nodes.car.position.x += 4 * delta;
+		}
+		if(nodes.car.position.x > 310) {
+			nodes.car.position.x = 310;
 		}
 	}
 
