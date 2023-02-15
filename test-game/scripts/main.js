@@ -87,12 +87,15 @@ function prepare() {
 	nodes.clouds = new PIXI.TilingSprite(loader.resources.clouds.texture, 512, 34);
 	nodes.road = new PIXI.Sprite(loader.resources.road.texture);
 	nodes.roadLines = new PIXI.TilingSprite(loader.resources.road_lines.texture, 142, 452);
+	nodes.coin = new PIXI.Sprite(loader.resources.coin.texture);
+	nodes.coinDouble = new PIXI.Sprite(loader.resources.coin_double.texture);
 	nodes.car = new PIXI.Sprite(loader.resources.car.texture);
 
 	container.addChild(nodes.town);
 	container.addChild(nodes.clouds);
 	container.addChild(nodes.road);
 	container.addChild(nodes.roadLines);
+	container.addChild(nodes.coin);
 	container.addChild(nodes.car);
 
 	ui.help = new PIXI.Text('A / D - to move\nSpace - to boost', UI_STYLE_TEXT);
@@ -117,6 +120,8 @@ function start() {
 
 	nodes.car.position.x = RENDER_WIDTH / 2 - 44 / 2 ;
 	nodes.car.position.y = 430;
+
+	nodes.coin.position.x = 9999;
 
 	ui.help.x = 15;
 	ui.help.y = 475;
