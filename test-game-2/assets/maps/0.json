@@ -1296,7 +1296,7 @@
  "nextlayerid":5,
  "nextobjectid":106,
  "orientation":"orthogonal",
- "renderorder":"right-down",
+ "renderorder":"left-up",
  "tiledversion":"2020.05.20",
  "tileheight":16,
  "tilesets":[
